@@ -1,5 +1,5 @@
 // stack memory. static(data) memory
-// stack memory : parameter, local variable
+// stack memory : parameter, local variable 
 // static(data) memory : global / static object
 
 #include <iostream>
@@ -8,7 +8,7 @@ using namespace std;
 class Circle
 {
 private:
-    double radius;
+    double radius = 0;
     static int count; // static object
 public:
     // constructor
@@ -90,6 +90,9 @@ int main()
 
     Circle circle4(circle2);
     cout << "Radius: " << circle4.getRadius() << endl;
+
+    // cout << Circle::getCount() << "개" << endl << endl;
+    cout << circle3.getCount() << "개" << endl << endl; // circle3 객체를 이용하여 사용 - 그 시점에 소멸되지 않은 객체만 사용 가능 
 
     return 0;
 }
