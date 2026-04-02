@@ -15,7 +15,7 @@ public:
     Circle() {
         cout << this << "원 객체 생성 (기본 생성자)\n";
         count++;
-    }
+    }   
     Circle(double r) {
         cout << this << "원 객체 생성 (매개변수 생성자)\n";
         radius = r;
