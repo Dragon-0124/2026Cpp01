@@ -4,18 +4,13 @@
 using namespace std;
 
 int main(){
-    //int humans = 100;
-    //int ages[humans];
 
-
-    int age;
-    //int* a = &age; // 포인터 변수는 메모리 번지 주소만 받을 수 있음
-
+    int age, totalPrice = 0;
     int humans = 0;
     cout << "How many? -> ";
     cin >> humans;
     cout << endl;
-    int* ages = new int[humans]; // allocate dynamic memory(heap memory)
+    int* ages = new int[humans];
 
     for (int i = 0; i < humans; i++){
         cout << endl << "How old?? -> ";
@@ -23,9 +18,20 @@ int main(){
         *(ages + i) = age; // age를 *(ages + i)의 주소에 기입
         }
 
+    int kid = 5000, adult = 10000, senior = 7000;
+
     for (int i = 0; i < humans; i++) {
-        cout << (ages+i) << "번지 " << *(ages + i) << "세" << endl ;
+        age = (*ages + i); 
+        //age = ages[i];    // 포인터는 배열처럼,  배열은 포인터처럼 사용 가능
+        if (age >= 65)
+            totalPrice = totalPrice + senior;
+        else if (age >= 19)
+            totalPrice = totalPrice + adult;
+        else
+            totalPrice = totalPrice + kid;
     }
+
+    cout << "Total Price : " << totalPrice << endl;
 
     /*
     cout << ages << endl;
