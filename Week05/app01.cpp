@@ -10,7 +10,7 @@ int main(){
     cout << "How many? -> ";
     cin >> humans;
     cout << endl;
-    int* ages = new int[humans];
+    int* ages = new int[humans]; // 포인터 변수는 메모리 주소만 받을 수 있음 -> int* ages
 
     for (int i = 0; i < humans; i++){
         cout << endl << "How old?? -> ";
@@ -40,7 +40,7 @@ int main(){
     */
 
     delete[] ages; // free memory
-    ages = nullptr;
+    ages = nullptr; // 메모리는 반납됐지만 메모리 주소는 가지고 있기 때문에 일어날 수 있는 오류 방지
 
     // 지정해 주지 않으면 프로그램이 꺼졌을 때 OS단에서 누수를 막기위해 개입하지만 OS가 지원하지 않으면 메모리 공간을 계속 차지함
 
