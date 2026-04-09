@@ -70,6 +70,10 @@ void test() {
 
     cout << Circle::getCount() << "개\n";
     
+    cout << "Radius of circle6 : " << circle6.getRadius() << endl;
+
+    cout << "Radius of circle7 : " << circle7->getRadius() << endl; // circle7->getRadius() ≒ (*circle7).getRadius() 
+
     delete circle7; // free Heap memory
 
     cout << Circle::getCount() << "개\n";
@@ -81,9 +85,9 @@ int main()
 
     Circle circle1;
     circle1.setRadius(10.0);
-    cout << "Radius: " << circle1.getRadius() << endl;
-    cout << "Area: " << circle1.getArea() << endl;
-    cout << "Perimeter: " << circle1.getPerimeter() << endl << endl;
+    cout << "Radius of circle1 : " << circle1.getRadius() << endl;
+    cout << "Area of circle1 : " << circle1.getArea() << endl;
+    cout << "Perimeter of circle1 : " << circle1.getPerimeter() << endl << endl;
 
     cout << Circle::getCount() << "개\n";
 
@@ -93,14 +97,14 @@ int main()
 
     Circle circle2;
     circle2.setRadius(20.0);
-    cout << "Radius: " << circle2.getRadius() << endl;
-    cout << "Area: " << circle2.getArea() << endl;
-    cout << "Perimeter: " << circle2.getPerimeter() << endl << endl;
+    cout << "Radius of circle2 : " << circle2.getRadius() << endl;
+    cout << "Area of circle2 : " << circle2.getArea() << endl;
+    cout << "Perimeter of circle2 : " << circle2.getPerimeter() << endl << endl;
 
     Circle circle3(5.0);
 
     Circle circle4(circle2);
-    cout << "Radius: " << circle4.getRadius() << endl;
+    cout << "Radius of circle4 : " << circle4.getRadius() << endl;
 
     cout << Circle::getCount() << "개\n";
     //cout << circle4.getCount() << "개\n"; // getCount도 Circle클래스의 멤버함수로 인스턴스.getCount() 가능
