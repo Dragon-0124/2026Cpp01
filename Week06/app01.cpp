@@ -13,7 +13,7 @@ private:
 
 public:
     // constructor
-    Circle() {
+    Circle() : radius(0){
         cout << this << "원 객체 생성 (기본 생성자)\n";
         count++;
     }
@@ -63,46 +63,55 @@ inline void Circle::setRadius(double value)
 
 Circle circle5;  // global object
 
-void test() {
+Circle* test() {
     Circle circle6(2.0);
-
-    Circle* circle7 = new Circle(circle6) ; // allocate Heap memory
-
-    cout << Circle::getCount() << "개\n";
+    cout << "Radius of circle6 : " << circle6.getRadius() << endl;
+    cout <<  "현재 남아있는 원 : " <<Circle::getCount() << "개\n";
     
-    delete circle7; // free Heap memory
+    Circle* circle7 = new Circle(circle6) ; // allocate Heap memory
+    cout << "현재 남아있는 원 : " << Circle::getCount() << "개\n";
+    cout << "Radius of circle7 : " << circle7->getRadius() << endl; // circle7->getRadius() ≒ (*circle7).getRadius() 
 
-    cout << Circle::getCount() << "개\n";
+
+    return circle7;
 }
 
 int main()
 {
-    cout << Circle::getCount() << "개\n";
+    cout <<  "현재 남아있는 원 : " <<Circle::getCount() << "개\n";
 
     Circle circle1;
     circle1.setRadius(10.0);
-    cout << "Radius: " << circle1.getRadius() << endl;
-    cout << "Area: " << circle1.getArea() << endl;
-    cout << "Perimeter: " << circle1.getPerimeter() << endl << endl;
+    cout << "현재 남아있는 원 : " << Circle::getCount() << "개\n";
+    cout << "Radius of circle1 : " << circle1.getRadius() << endl;
+    cout << "Area of circle1 : " << circle1.getArea() << endl;
+    cout << "Perimeter of circle1 : " << circle1.getPerimeter() << endl << endl;
 
-    cout << Circle::getCount() << "개\n";
 
-    test();
+    Circle* pointer = test(); // circle7이라는 이름은 지역 포인트 변수여서 test() 종료 후 삭제되었지만 주소는 남아있음
+    cout << "현재 남아있는 원 : " << Circle::getCount() << "개\n";
+    cout << "Radius of pointer : " << pointer->getRadius() << endl;
+    cout << "Area of pointer : " << pointer->getArea() << endl; // 그 주소에 있는 데이터를 가져올 수 있음(heap memory가 살아있음)
+    delete pointer; // 힙메모리에 할당된 객체를 삭제(소멸자 동작)
+    pointer = nullptr; // 포인터가 가지고 있던 힙메모리 번지 주소를 초기화
+    
 
-    cout << Circle::getCount() << "개\n";
+    cout <<  "현재 남아있는 원 : " <<Circle::getCount() << "개\n";
 
     Circle circle2;
     circle2.setRadius(20.0);
-    cout << "Radius: " << circle2.getRadius() << endl;
-    cout << "Area: " << circle2.getArea() << endl;
-    cout << "Perimeter: " << circle2.getPerimeter() << endl << endl;
+    cout << "현재 남아있는 원 : " << Circle::getCount() << "개\n";
+    cout << "Radius of circle2 : " << circle2.getRadius() << endl;
+    cout << "Area of circle2 : " << circle2.getArea() << endl;
+    cout << "Perimeter of circle2 : " << circle2.getPerimeter() << endl << endl;
 
     Circle circle3(5.0);
+    cout << "현재 남아있는 원 : " << Circle::getCount() << "개\n";
 
     Circle circle4(circle2);
-    cout << "Radius: " << circle4.getRadius() << endl;
+    cout << "현재 남아있는 원 : " << Circle::getCount() << "개\n";
+    cout << "Radius of circle4 : " << circle4.getRadius() << endl;
 
-    cout << Circle::getCount() << "개\n";
     //cout << circle4.getCount() << "개\n"; // getCount도 Circle클래스의 멤버함수로 인스턴스.getCount() 가능
     //cout << circle6.getCount() << "개\n"; // 이미 소멸된 객체라 사용 불가. 오류발생
     return 0;
