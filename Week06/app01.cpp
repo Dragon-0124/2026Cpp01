@@ -70,9 +70,8 @@ Circle* test() {
     
     Circle* circle7 = new Circle(circle6) ; // allocate Heap memory
     cout << "현재 남아있는 원 : " << Circle::getCount() << "개\n";
+    //cout << "Radius of circle7 : " << circle7.getRadius() << endl; // error. circle7 is not object, local pointer
     cout << "Radius of circle7 : " << circle7->getRadius() << endl; // circle7->getRadius() ≒ (*circle7).getRadius() 
-    cout << "Radius of circle6 : " << circle6.getRadius() << endl;
-
 
     return circle7;
 }
