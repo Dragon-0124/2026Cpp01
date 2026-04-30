@@ -3,14 +3,19 @@
 using namespace std;
 
 int main() {
-	//char s1[] = { 'A', 'B', 'C' }; //오류 발생
-	//char s1[] = {'A', 'B', 'C', '\0' };
-	//char s1[] = {'A', 'B', 'C', NULL };
-	//char s1[] = {'A', 'B', 'C', 0 };
-	//char s1[] = "ABC"; // 위의 3개와 같지만 더 간결한 방식
-	char s1[] = {'A', 'B', 0, 'C'}; // B까지만 인식함
-	
-	cout << s1 << "\n" ;
+	//char s1[] = { 'A', 'C', 'E', '\0' };
+	//char s1[] = { 'A', 'C', 'E'};  // !!!
+	//char s1[] = { 'A', 'C', 'E', NULL };	
+	//char s1[] = { 'A', 'C', 'E', 0 };
+	//char s1[] = "ACE";
+
+	char s1[] = { 'A', 'C', NULL, 'E' };
+	//const char s1[] = { 'A', 'C', NULL, 'E' };  // read only
+	cout << s1 << '\n';
+	s1[2] = 'D';
+	cout << s1 << '\n';
+
+
 
 	return 0;
 }
