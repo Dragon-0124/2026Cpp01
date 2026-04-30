@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <cstring>  // string.h
 using namespace std;
@@ -28,3 +29,4 @@ int main() {
 
 	return 0;
 }
+*/
