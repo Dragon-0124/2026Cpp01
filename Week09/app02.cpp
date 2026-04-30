@@ -1,21 +1,18 @@
 #include <iostream>
+#include <string>
 #include <cstring>
 using namespace std;
 
 int main()
 {
-	// Declaration of an array of strings
-	char lines[80];
-
-	cout << "Enter a line of characters: ";
-	cin.getline(lines, 80); // only Enter as the delimiter
-	//cin >> lines; // tap, space, Enter as the delimiter
+	char a[] = "ACE"; // ACB, ACZ
+	char b[] = "ACE";
 	
-	// Outputting lines
-	cout << endl;
-	cout << "<Output>" << endl;
+	string c = "ACE"; // class string
+	string d = "ACE";
 
-	cout << lines << endl;
+	cout << strcmp(a, b) << '\n'; // 0, -1, 1
+	cout << (c == d) << '\n';
 
 	return 0;
 }
